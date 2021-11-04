@@ -12,18 +12,18 @@ class LoginScreen extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 250),
+            const SizedBox(height: 250),
             CardContainer(
                 child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
                   'Login',
                   style: Theme.of(context).textTheme.headline4,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 ChangeNotifierProvider(
@@ -32,14 +32,14 @@ class LoginScreen extends StatelessWidget {
                 ),
               ],
             )),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Text(
+            const Text(
               'Create an Account',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
           ],
@@ -70,13 +70,13 @@ class _LoginForm extends StatelessWidget {
               validator: (value) {
                 String pattern =
                     r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-                RegExp regExp = new RegExp(pattern);
+                RegExp regExp = RegExp(pattern);
                 return regExp.hasMatch(value ?? '')
                     ? null
                     : 'Mail is not valid';
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             TextFormField(
@@ -93,7 +93,7 @@ class _LoginForm extends StatelessWidget {
                 return 'Password must be, at least, 6 characters long';
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             MaterialButton(
@@ -103,10 +103,11 @@ class _LoginForm extends StatelessWidget {
                 elevation: 0,
                 color: Colors.deepPurple,
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 80, vertical: 15),
                   child: Text(
                     loginForm.isLoading ? 'Wait' : 'Login',
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
                 onPressed: loginForm.isLoading
@@ -115,7 +116,7 @@ class _LoginForm extends StatelessWidget {
                         FocusScope.of(context).unfocus();
                         if (!loginForm.isValidForm()) return;
                         loginForm.isLoading = true;
-                        Future.delayed(Duration(seconds: 2));
+                        Future.delayed(const Duration(seconds: 2));
                         loginForm.isLoading = false;
                         Navigator.pushReplacementNamed(context, 'home');
                       }),

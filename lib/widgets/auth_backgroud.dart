@@ -15,7 +15,7 @@ class AuthBackground extends StatelessWidget {
         children: [
           _PurpleBox(),
           HeaderIcon(),
-          this.child,
+          child,
         ],
       ),
     );
@@ -28,8 +28,8 @@ class HeaderIcon extends StatelessWidget {
     return SafeArea(
       child: Container(
         width: double.infinity,
-        margin: EdgeInsets.only(top: 30),
-        child: Icon(Icons.person_pin, color: Colors.white, size: 100),
+        margin: const EdgeInsets.only(top: 30),
+        child: const Icon(Icons.person_pin, color: Colors.white, size: 100),
       ),
     );
   }
@@ -76,7 +76,7 @@ class _PurpleBox extends StatelessWidget {
     );
   }
 
-  BoxDecoration _purpleBackground() => BoxDecoration(
+  BoxDecoration _purpleBackground() => const BoxDecoration(
           gradient: LinearGradient(colors: [
         Color.fromRGBO(63, 63, 156, 1),
         Color.fromRGBO(90, 70, 178, 1)
@@ -91,7 +91,7 @@ class _Bubble extends StatelessWidget {
       height: 100,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
-          color: Color.fromRGBO(255, 255, 255, 0.05)),
+          color: const Color.fromRGBO(255, 255, 255, 0.05)),
     );
   }
 }
